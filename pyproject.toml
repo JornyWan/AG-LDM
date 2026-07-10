@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ag-ldm"
+version = "0.1.0"
+description = "Anatomically Guided Latent Diffusion for Brain MRI Progression Modeling"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyyaml",
+    "numpy == 1.*",
+    "pandas == 2.*",
+    "scipy",
+    "matplotlib == 3.*",
+    "nibabel == 5.*",
+    "torch == 2.*",
+    "tensorboard == 2.*",
+    "monai == 1.3.*",
+    "monai-generative == 0.2.3",
+    "einops",
+    "tqdm == 4.*",
+    "wandb",
+    "rich",
+    "POT",
+]
+
+# The model framework lives in src/brlp (adapted from BrLP, github.com/LemuelPuglisi/BrLP).
+[tool.setuptools.packages.find]
+where = ["src"]

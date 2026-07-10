@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Model weights / checkpoints (not distributed)
+*.pth
+*.pt
+*.ckpt
+*.h5
+
+# Data, caches, outputs
+data/
+cache/
+*_cache/
+output/
+outputs/
+train_cache/
+*.nii
+*.nii.gz
+
+# Experiment tracking / logs
+wandb/
+runs/
+logs/
+*.log
+job_out*/
+job_err*/
+
+# OS
+.DS_Store
