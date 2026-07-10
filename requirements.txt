@@ -1,0 +1,26 @@
+# Core scientific stack
+numpy==1.*
+pandas==2.*
+scipy
+matplotlib==3.*
+nibabel==5.*
+tqdm==4.*
+pyyaml
+rich
+
+# Deep learning
+torch==2.*
+monai==1.3.*
+monai-generative==0.2.3   # provides the `generative` package
+einops                    # required by the WarpSeg (MGA-Net) segmentation model
+
+# Experiment tracking
+wandb
+tensorboard==2.*
+
+# Evaluation
+POT                       # `ot` — optimal transport, used by the WASABI metric
+
+# External tools (not pip-installable):
+#   - FreeSurfer >= 7.4 with `mri_synthseg` on PATH  (ROI volume metrics in evaluate.py)
+#   - WarpSeg checkpoint (Tissue_model.pth) from https://github.com/BahramJafrasteh/WarpSeg
