@@ -75,7 +75,32 @@ python scripts/training/evaluate.py --dataset_csv DATA.csv \
 ```
 
 Evaluation ROI metrics call FreeSurfer `mri_synthseg` (must be on `PATH`); WASABI needs
-`POT`. Pretrained AG-LDM checkpoints are not distributed.
+`POT`.
+
+## Pretrained weights
+
+The AG-LDM checkpoints used for the reported results are on Hugging Face:
+[**Jorny/AG-LDM**](https://huggingface.co/Jorny/AG-LDM).
+
+| File | Description | Params |
+|---|---|---|
+| `checkpoints/ag-ldm_stage1_autoencoder.pth` | Stage-1 fine-tuned KL autoencoder | 13.77 M |
+| `checkpoints/ag-ldm_stage2_diffusion.pth` | Stage-2 channel-conditioned UNet | 475.44 M |
+
+```bash
+hf download Jorny/AG-LDM --local-dir ./AG-LDM-weights
+```
+
+```python
+from huggingface_hub import hf_hub_download
+from brlp import networks
+
+ae   = networks.init_autoencoder(hf_hub_download('Jorny/AG-LDM', 'checkpoints/ag-ldm_stage1_autoencoder.pth'))
+diff = networks.init_latent_diffusion_channel_cond(hf_hub_download('Jorny/AG-LDM', 'checkpoints/ag-ldm_stage2_diffusion.pth'))
+```
+
+Pass them to the scripts above as `--aekl_ckpt` and `--diff_ckpt`. The WarpSeg teacher is
+needed only for training, not for inference with these weights.
 
 ## Acknowledgments
 
