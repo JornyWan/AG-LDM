@@ -5,6 +5,8 @@ for longitudinal brain-MRI progression. The framework and preprocessing build on
 [BrLP](https://github.com/LemuelPuglisi/BrLP); anatomical supervision comes from the frozen
 **WarpSeg** tissue segmenter.
 
+## We will have an updated version coming soon~
+
 ## Structure
 
 ```
